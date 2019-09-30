@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Team } from '../teams/team';
 
 @Component({
   selector: 'app-administration',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./administration.component.css']
 })
 export class AdministrationComponent implements OnInit {
+  @Input() team: Team;
 
   constructor() { }
 

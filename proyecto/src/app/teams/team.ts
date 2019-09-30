@@ -6,3 +6,4 @@ export class Team {
     puntos: number;
     escudo: string;
   }
+  
