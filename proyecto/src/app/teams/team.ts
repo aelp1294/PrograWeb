@@ -1,7 +1,8 @@
 export class Team {
     id: number;
+    liga: string;
     nombre: string;
-    titulos: number;
+    campeonatos: number;
     puntos: number;
     escudo: string;
   }

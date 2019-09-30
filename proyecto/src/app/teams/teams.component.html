@@ -1,36 +1,21 @@
-<h2>Equipos</h2>
+<H1>Listado de equipos</H1>
+<div class="container">
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Liga</th>
+    <th>Campeonatos</th>
+    <th>Puntos</th>
+    <th>Escudo</th>
+  </tr>  
+  
+  <tr *ngFor="let team of teams">
+      <td>{{team.nombre}}</td>
+      <td>{{team.liga}}</td>
+      <td>{{team.campeonatos}}</td>
+      <td>{{team.puntos}}</td> 
+      <td><img src="{{team.escudo}}" alt="logo" height="50" width="50"></td> 
+  </tr>
 
-<ul class="teams">
-  <li *ngFor="let team of teams"
-    [class.selected]="team === selectedTeam"
-    (click)="onSelect(team)">
-    <span class="badge">{{team.id}}</span> {{team.nombre}}
-  </li>
-</ul>
-
-<div *ngIf="selectedTeam">
-
-  <h2>Equipo: {{selectedTeam.nombre | uppercase}}, Detalles</h2>
-  <div><span>id: </span>{{selectedTeam.id}}</div>
-  <div>
-    <label>nombre:
-      <input [(ngModel)]="selectedTeam.nombre" placeholder="nombre"/>
-    </label>
-  </div>
-  <div>
-    <label>titulos:
-      <input [(ngModel)]="selectedTeam.titulos" placeholder="titulos"/>
-    </label>
-  </div>
-  <div>
-    <label>puntos:
-      <input [(ngModel)]="selectedTeam.puntos" placeholder="puntos"/>
-    </label>
-  </div>
-  <div>
-    <label>escudo:
-      <input [(ngModel)]="selectedTeam.escudo" placeholder="escudo"/>
-    </label>
-  </div>
-
+</table>
 </div>
