@@ -22,7 +22,7 @@ export class TeamService {
     private messageService: MessageService) { }
 
   /** GET teams from the server */
-  getTeams (): Observable<Team[]> {
+  getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>(this.teamsUrl)
       .pipe(
         tap(_ => this.log('fetched teams')),

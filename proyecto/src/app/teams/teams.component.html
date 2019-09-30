@@ -25,12 +25,12 @@
 
 
 
-<div class="form-popup" id="myForm">
+<div *ngIf="selectedTeam" class="form-popup" id="myForm">
   <form class="form-container">
-    <h1>Editar: {{selectedTeam.nombre}}</h1>
+    <h1>Editar {{selectedTeam.nombre}}</h1>
 
     <label for="nombre"><b>Nombre</b></label>
-    <input type="text" placeholder="{{selectedTeam.nombre}}" name="nombre" required>
+    <input type="text" [(ngModel)]="selectedTeam.nombre" name="nombre" required>
 
     <label for="liga"><b>Liga</b></label>
     <input type="text" placeholder="{{selectedTeam.liga}}" name="liga" required>

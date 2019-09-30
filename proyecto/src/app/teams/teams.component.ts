@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Team } from './team';
 import { TEAMS } from './test-Teams';
 import { TeamService } from '../team.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-teams',
@@ -15,7 +16,7 @@ export class TeamsComponent implements OnInit {
   teams = TEAMS;
   selectedTeam: Team;
 
-  constructor(private teamService: TeamService) { }
+  constructor(private teamService: TeamService, private location: Location) { }
 
   ngOnInit() {
   }
@@ -33,8 +34,12 @@ export class TeamsComponent implements OnInit {
     document.getElementById("myForm").style.display = "none";
   }
 
+  goBack(): void {
+    this.location.back();
+  }
+
   save(): void {
-    this.teamService.updateTeam(this.team)
+    this.teamService.updateTeam(this.selectedTeam)
       .subscribe(() => this.goBack());
   }
 

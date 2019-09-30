@@ -63,19 +63,7 @@
 
 /* Set a style for the submit/login button */
 .btn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-/* Set a style for the submit/login button */
-.filebtn {
-  background-color: rgb(86, 49, 223);
+  background-color: rgb(45, 109, 47);
   color: white;
   padding: 16px 20px;
   border: none;
@@ -87,7 +75,7 @@
 
 /* Add a red background color to the cancel button */
 .cancel {
-  background-color: red;
+  background-color: rgb(182, 6, 6);
 }
 
 /* Add some hover effects to buttons */
