@@ -1,4 +1,4 @@
-<H1>Listado de equipos</H1>
+<H1>Listado de equipos <img src=".\assets\images\add2.png" alt="logo" height="40" width="40" (click)="create()"></H1>
 <div class="container">
 <table>
   <tr>
@@ -10,40 +10,38 @@
     <th>Actualizar</th>
   </tr>  
   
-  <tr *ngFor="let team of teams"
+  <tr *ngFor="let team of teams | async"
       [class.selected]="team === selectedTeam">
       <td>{{team.nombre}}</td>
       <td>{{team.liga}}</td>
       <td>{{team.campeonatos}}</td>
       <td>{{team.puntos}}</td> 
       <td><img src="{{team.escudo}}" alt="logo" height="50" width="50"></td> 
-      <td><img src=".\assets\images\edit2.png" alt="logo" height="20" width="20" (click)="openForm(team)">
+      <td><img src=".\assets\images\edit2.png" alt="logo" height="20" width="20" (click)="editTeam(team)">
       <img src=".\assets\images\delete.png" alt="logo" height="20" width="20" (click)="delete(team)"></td>
   </tr>
 </table>
 </div>
 
-
-
-<div *ngIf="selectedTeam" class="form-popup" id="myForm">
+<div *ngIf="isUpdate === 1" class="form-popup" id="myForm">
   <form class="form-container">
-    <h1>Editar {{selectedTeam.nombre}}</h1>
+    <h1>{{typeTransaction}} {{selectedTeam.nombre}}</h1>
 
     <label for="nombre"><b>Nombre</b></label>
-    <input type="text" [(ngModel)]="selectedTeam.nombre" name="nombre" required>
+    <input type="text" [(ngModel)]="tempTeam.nombre" name="nombre" value={{selectedTeam.nombre}} required>
 
     <label for="liga"><b>Liga</b></label>
-    <input type="text" placeholder="{{selectedTeam.liga}}" name="liga" required>
+    <input type="text" [(ngModel)]="tempTeam.liga" name="liga" value={{selectedTeam.liga}} required>
 
     <label for="campeonatos"><b>Campeonatos</b></label>
-    <input type="number" min="0" placeholder="{{selectedTeam.campeonatos}}" name="campeonatos" required>
+    <input type="number" min="0" [(ngModel)]="tempTeam.campeonatos" name="campeonatos" value={{selectedTeam.campeonatos}} required>
     <p><p>
     <label for="puntos"><b>Puntos</b></label>
     <br>
-    <input type="number" min="0" placeholder="{{selectedTeam.puntos}}" name="puntos" required>
+    <input type="number" min="0" [(ngModel)]="tempTeam.puntos" name="puntos" value={{selectedTeam.puntos}} required>
     <p>
     <label for="imagen"><b>Escudo</b></label>
-    <input type="file" name="imagen" accept="image/png">
+    <input type="text" [(ngModel)]="tempTeam.escudo" name="escudo" value={{selectedTeam.escudo}} required>
     <p>    
     <button type="submit" class="btn" (click)="save()">Guardar</button>
     <button type="button" class="btn cancel" (click)="closeForm()">Cancelar</button>
