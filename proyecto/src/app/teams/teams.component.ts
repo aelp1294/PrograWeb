@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
 export class TeamsComponent implements OnInit {
 
   teams : any;
-  readonly url = 'http://localhost:3000/api/v1/teams/'
+  readonly url = 'http://proyectoapi.westus.azurecontainer.io:3000/api/v1/teams/'
   selectedTeam: Team;
   isUpdate = 0;
   typeTransaction = "";
