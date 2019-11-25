@@ -1,8 +1,8 @@
-FROM node:latest as node
+FROM node:10.16.0
 WORKDIR /app
-COPY . .
+COPY package*.json ./
 RUN npm install
-RUN npm run build --prod
 
-FROM nginx:alpine
-COPY --from=node /app/dist/proyectoWeb/ /usr/share/nginx/htmldoc
+COPY . .
+EXPOSE 4200
+CMD npm start
